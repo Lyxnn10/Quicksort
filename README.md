@@ -28,3 +28,5 @@ Der Quicksort gilt allgemein als In-Place-Verfahren, da dabei die zu Sortierende
 Worst-Case: $O(n)$   
 
 Average-Case: $O(log⁡(n))$
+
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
