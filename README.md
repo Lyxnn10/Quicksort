@@ -1,6 +1,6 @@
 # Quicksort Informatik EF Fbg
 
-Ein Quicksort Progreamm in Java für den Informatik Unterricht (Fbg)
+Ein Quicksort Programm in Java für den Informatik Unterricht (Fbg)
 
 
 ## Quicksort Laufzeit
