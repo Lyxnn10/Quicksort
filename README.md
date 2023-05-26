@@ -29,4 +29,4 @@ Worst-Case: $O(n)$
 
 Average-Case: $O(log⁡(n))$
 
-![Alt-Text](/img/qs.png)
+![Alt-Text](/img/quicksort.png)
