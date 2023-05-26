@@ -24,7 +24,6 @@ Aufgrund seiner Komplexität gehört der Quicksort in der Praxis tatsächlich zu
 ## Speicherplatzkomplexität
 Der Quicksort gilt allgemein als In-Place-Verfahren, da dabei die zu Sortierenden Elemente innerhalb der Liste vertauscht werden und kein zusätzlicher Speicherplatz benötigt wird. Der Speicherverbrauch ist vom Pivot-Element und der Art der vorhandenen Daten abhängig. Die Stapelgröße beträgt im:
   
-
 Worst-Case: $O(n)$   
 
 Average-Case: $O(log⁡(n))$
