@@ -2,6 +2,36 @@
 
 Ein Quicksort Programm in Java für den Informatik Unterricht (Fbg)
 
+## Quicksort Pseudocode
+
+```
+funktion quicksort (links, rechts)
+
+if links < rechts
+    t = teilen(links, rechts)
+    quicksort(links, t)
+    quicksort(t + 1, rechts)
+  end
+end
+
+funktion teilen(links, rechts)
+  
+  n = links – 1
+  m = rechts + 1
+
+  pivot = Liste[(links + rechts) / 2]
+  while Liste[n] < pivot  // wenn Elemente < Pivot-Element ordne sie links ein
+    n++
+  while Liste [m] > pivot  // wenn Elemente > Pivot-Element ordne sie rechts ein
+    m++
+
+  if (n < m)
+    int a = Liste[n]
+    Liste[n] = Liste[m]
+    Liste[m] = a
+  else return m
+  ```
+
 
 ## Quicksort Laufzeit
 
