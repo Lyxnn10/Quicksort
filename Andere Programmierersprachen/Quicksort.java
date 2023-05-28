@@ -1,73 +1,74 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
-class Quicksort {
+class QuickSort {
+	private static Scanner sc;
 
-  // method to find the partition position
-  static int partition(int array[], int low, int high) {
-    
-    // choose the rightmost element as pivot
-    int pivot = array[high];
-    
-    // pointer for greater element
-    int i = (low - 1);
+	public static void main(String args[]) {
+		sc = new Scanner(System.in);
 
-    // traverse through all elements
-    // compare each element with pivot
-    for (int j = low; j < high; j++) {
-      if (array[j] <= pivot) {
+		// Benutzer nach der Anzahl der Elemente im Array fragen
+		System.out.println("Anzahl der Elemente im Array:");
+		int n = sc.nextInt();
+		
+		// Benutzer nach den Werten der Elemente im Array fragen
+		System.out.println("Werte der Elemente im Array:");
+		int arr[] = new int[n];
+		for (int i = 0; i < n; i++)
+			arr[i] = sc.nextInt();
+		
+		// Das unsortierte Array ausgeben
+		System.out.println("Das unsortierte Array ist " + Arrays.toString(arr));
 
-        // if element smaller than pivot is found
-        // swap it with the greater element pointed by i
-        i++;
+		// QuickSort aufrufen, um das Array zu sortieren
+		sort(arr, 0, arr.length - 1);
+		
+		// Das sortierte Array ausgeben
+		System.out.println("Das sortierte Array ist " + Arrays.toString(arr));
+	}
 
-        // swapping element at i with element at j
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-      }
+	// QuickSort-Algorithmus
+	static void sort(int arr[], int start, int end) {
+		if (start < end) {
+			// Teile das Array und erhalte den Partitionierungsindex
+			int pIndex = partition(arr, start, end);
+			
+			// Sortiere die linke Hälfte des Arrays (Elemente kleiner als das Pivot-Element)
+			sort(arr, start, pIndex - 1);
+			
+			// Sortiere die rechte Hälfte des Arrays (Elemente größer als das Pivot-Element)
+			sort(arr, pIndex + 1, end);
+		}
+	}
 
-    }
+	// Partitioniert das Array um das Pivot-Element
+	static int partition(int arr[], int start, int end) {
+		// Das Pivot-Element auswählen (hier wird das letzte Element gewählt)
+		int pivot = arr[end];
+		
+		// Initialer Partitionierungsindex
+		int pIndex = start;
+		
+		// Elemente durchgehen und sie in die entsprechenden Hälften des Arrays verschieben
+		for (int i = start; i < end; i++) {
+			if (arr[i] <= pivot) {
+				// Elemente kleiner oder gleich dem Pivot-Element werden nach links verschoben
+				swap(arr, i, pIndex);
+				pIndex++;
+			}
+		}
+		
+		// Das Pivot-Element an seine endgültige Position bringen
+		swap(arr, pIndex, end);
+		
+		// Den endgültigen Partitionierungsindex zurückgeben
+		return pIndex;
+	}
 
-    // swapt the pivot element with the greater element specified by i
-    int temp = array[i + 1];
-    array[i + 1] = array[high];
-    array[high] = temp;
-
-    // return the position from where partition is done
-    return (i + 1);
-  }
-
-  static void quickSort(int array[], int low, int high) {
-    if (low < high) {
-
-      // find pivot element such that
-      // elements smaller than pivot are on the left
-      // elements greater than pivot are on the right
-      int pi = partition(array, low, high);
-      
-      // recursive call on the left of pivot
-      quickSort(array, low, pi - 1);
-
-      // recursive call on the right of pivot
-      quickSort(array, pi + 1, high);
-    }
-  }
-}
-
-// Main class
-class Main {
-  public static void main(String args[]) {
-
-    int[] data = { 8, 7, 2, 1, 0, 9, 6, 10};
-    System.out.println("Unsorted Array: ");
-    System.out.println(Arrays.toString(data));
-
-    int size = data.length;
-
-    // call quicksort() on array data
-    Quicksort.quickSort(data, 0, size - 1);
-
-    System.out.println("Sorted Array in Ascending Order: ");
-    System.out.println(Arrays.toString(data));
-  }
+	// Hilfsmethode zum Vertauschen von zwei Array-Elementen
+	static void swap(int arr[], int x, int y) {
+		int temp = arr[x];
+		arr[x] = arr[y];
+		arr[y] = temp;
+	}
 }
