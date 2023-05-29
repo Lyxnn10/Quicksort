@@ -5,31 +5,31 @@ Ein Quicksort Programm in Java für den Informatik Unterricht (Fbg)
 ## Quicksort Pseudocode
 
 ```
-funktion quicksort (links, rechts)
-
-if links < rechts
-    t = teilen(links, rechts)
-    quicksort(links, t)
-    quicksort(t + 1, rechts)
+funktion quicksort(links, rechts)
+  if links < rechts
+    t = teilen(links, rechts)  // Teile die Liste in zwei Hälften um ein Pivot-Element zu finden
+    quicksort(links, t)       // Sortiere die linke Hälfte der Liste
+    quicksort(t + 1, rechts)   // Sortiere die rechte Hälfte der Liste
   end
 end
 
 funktion teilen(links, rechts)
+  n = links - 1   // Index für Elemente, die kleiner als das Pivot-Element sind
+  m = rechts + 1  // Index für Elemente, die größer als das Pivot-Element sind
   
-  n = links – 1
-  m = rechts + 1
+  pivot = Liste[(links + rechts) / 2]  // Wähle das Pivot-Element aus der Liste
 
-  pivot = Liste[(links + rechts) / 2]
-  while Liste[n] < pivot  // wenn Elemente < Pivot-Element ordne sie links ein
-    n++
-  while Liste [m] > pivot  // wenn Elemente > Pivot-Element ordne sie rechts ein
+  while Liste[n] < pivot  // Ordne Elemente, die kleiner als das Pivot-Element sind, links ein
+    n++ 
+    
+  while Liste[m] > pivot  // Ordne Elemente, die größer als das Pivot-Element sind, rechts ein
     m++
-
-  if (n < m)
-    int a = Liste[n]
+    
+  if n < m
+    int a = Liste[n]    // Tausche die Elemente an den Positionen n und m
     Liste[n] = Liste[m]
     Liste[m] = a
-  else return m
+  else return m         // Gib die Position des Pivot-Elements zurück
   ```
 
 
